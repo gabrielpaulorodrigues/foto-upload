@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { s3Client } from "@/app/lib/s3Client";
 import { ListObjectsV2Command } from "@aws-sdk/client-s3";
+import { DeleteForm } from "@/app/components/DeleteForm";
 
 export async function Gallery() {
   const params = {
@@ -8,7 +9,6 @@ export async function Gallery() {
   };
 
   const command = new ListObjectsV2Command(params);
-
   const response = await s3Client.send(command);
 
   const imageList = response.Contents?.map((object) => object.Key);
@@ -30,6 +30,10 @@ export async function Gallery() {
                 height={260}
                 className="w-full h-full object-cover"
               />
+
+              <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <DeleteForm imageKey={imagem ?? ''} />
+              </div>
             </div>
           ))}
         </div>

@@ -3,7 +3,7 @@
 import { uploadImage } from "../actions";
 
 export function UploadForm() {
-    
+  
     async function handleSubmit(formData: FormData) {
         const actionResponse = await uploadImage(formData);
     
@@ -12,7 +12,7 @@ export function UploadForm() {
         } else {
           console.log('Ops... ' + actionResponse.message);
         }
-      }
+    }
 
     return (
         <div className='border-primary border-dashed border-2 rounded-2xl bg-blue-50 min-w-full h-30 flex justify-center items-center mb-32 mt-13'>
@@ -25,5 +25,3 @@ export function UploadForm() {
         </div>
     );
 }
-
-
