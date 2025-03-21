@@ -1,3 +1,5 @@
+import {Gallery} from "./components/Gallery";
+
 export default function Home() {
   return (
     <>
@@ -10,6 +12,9 @@ export default function Home() {
             Galeria de fotos com <span className="text-gray-600 font-bold">Next.js, upload de imagens e S3</span>
           </p>
         </header>
+
+        <Gallery/>
+
       </main>
       <footer className="bg-slate-600 py-4 w-full"></footer>
     </>
